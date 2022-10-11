@@ -6,7 +6,7 @@
 /*   By: cjimenez <cjimenez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:11:16 by cjimenez          #+#    #+#             */
-/*   Updated: 2022/10/10 16:33:22 by cjimenez         ###   ########.fr       */
+/*   Updated: 2022/10/11 17:05:42 by cjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class Contact {
         std::string getNickname(void);
         std::string getPhoneNumber(void);
         std::string getDarkestSecret(void);
-    
+        void List(int i);    
     private:
         std::string _FirstName, _LastName, _Nickname, _PhoneNumber, _DarkestSecret;
         
