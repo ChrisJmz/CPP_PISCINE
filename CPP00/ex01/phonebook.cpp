@@ -6,7 +6,7 @@
 /*   By: cjimenez <cjimenez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:36:15 by cjimenez          #+#    #+#             */
-/*   Updated: 2022/10/11 18:25:54 by cjimenez         ###   ########.fr       */
+/*   Updated: 2022/10/12 16:48:12 by cjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 void    msg(void)
 {
-    std::cout << "PHONEBOOK BANGER : ADD, SEARCH OR EXIT: " << std::endl;
+    std::cout << "PHONEBOOK BANGER : ADD, SEARCH OR EXIT: ";
 }
 
 void    List(Contact *contact, int index)
@@ -68,24 +68,37 @@ inline void search (Contact *contact, int i){
             std::cout << std::setw((10 - value.length()) + value.length()) << value;
         std::cout << "|" << std::endl;
     }
-    std::cout << std::endl << "Contact index: ";
+    std::cout << "Contact index : ";
     std::string input;
     int index;
 
     while (1)
     {
         if (!std::getline(std::cin, input))
-            exit (1);
+            exit(1);
         if (input == "EXIT")
             break ;
-        if (std::isdigit(input[0]) && atoi(input.c_str()) < 9 && input != "" && atoi(input.c_str()) <= index)
+        if (std::isdigit(input[0]) && atoi(input.c_str()) < 9 && input != "" && atoi(input.c_str()) < i)
         {
             index = std::stoi(input);
             List(contact, index);
+            break;
         }
-        else
-            std::cout << "Contact index:";
+        std::cout << "Contact index : ";
     }
+}
+
+bool checkNum(std::string str)
+{
+    int i = 0;
+    
+    while (str[i])
+    {
+        if (isdigit(str[i]) == 0)
+            return (false);
+        i++;
+    }
+    return (true);
 }
 
 int main(void) {
@@ -93,6 +106,7 @@ int main(void) {
     std::string value;
     std::locale loc;
     PhoneBook phoneBook;
+    Contact cnt;
 
     int i = 0;
     int j = 0;
@@ -101,51 +115,61 @@ int main(void) {
     while (1)
     {
         if (!std::getline(std::cin, cmd)) {
-            std::cout << "OEF EXIT" << std::endl;
+            std::cout << "[EOF EXIT]" << std::endl;
             return (0);
         }
         for (std::string::size_type k = 0; k < cmd.length(); ++k)
             cmd[k] = std::toupper(cmd[k], loc);
         if (cmd == "ADD"){
                 std::cout << "Please enter your first name: ";
-                if (!std::getline(std::cin, value))
-                    return (0);
-                std::cin.clear();
-                fflush(stdin);
+                while (value.length() == 0){
+                    if (!std::getline(std::cin, value))
+                        return (std::cout << std::endl << "[EOF EXIT]" << std::endl, 0);
+                    if (value == "")
+                         std::cout << "Please enter your first name: ";
+                }
                 phoneBook.contact[j].setFirstName(value);
                 value = "";
                 std::cout << "Please enter your last name: ";
-                if (!std::getline(std::cin, value))
-                    return (0);
-                std::cin.clear();
-                fflush(stdin);
+                while (value.length() == 0){
+                    if (!std::getline(std::cin, value))
+                        return (std::cout << std::endl << "[EOF EXIT]" << std::endl, 0);
+                    if (value == "")
+                         std::cout << "Please enter your last name: ";
+                }
                 phoneBook.contact[j].setLastName(value);
                 value = "";
                 std::cout << "Please enter your nickname: ";
-                if (!std::getline(std::cin, value))
-                    return (0);
-                std::cin.clear();
-                fflush(stdin);
+                while (value.length() == 0){
+                    if (!std::getline(std::cin, value))
+                        return (std::cout << std::endl << "[EOF EXIT]" << std::endl, 0);
+                    if (value == "")
+                         std::cout << "Please enter your nickname: ";
+                }
                 phoneBook.contact[j].setNickname(value);
                 value = "";
                 std::cout << "Please enter your phone number: ";
-                if (!std::getline(std::cin, value))
-                    return (0);
-                std::cin.clear();
-                fflush(stdin);
+                while (value.length() == 0){
+                    if (!std::getline(std::cin, value))
+                        return (std::cout << std::endl << "[EOF EXIT]" << std::endl, 0);
+                    if (value == "")
+                         std::cout << "Please enter your phone number: ";
+                }
                 phoneBook.contact[j].setPhoneNumber(value);
                 value = "";
                 std::cout << "Please enter your darkest secret: ";
-                if (!std::getline(std::cin, value))
-                    return (0);
-                std::cin.clear();
-                fflush(stdin);
+                while (value.length() == 0){
+                    if (!std::getline(std::cin, value))
+                        return (std::cout << std::endl << "[EOF EXIT]" << std::endl, 0);
+                    if (value == "")
+                         std::cout << "Please enter your darkest secret: ";
+                }
                 phoneBook.contact[j].setDarkestSecret(value);
                 value = "";
                 if (i != 8)
                     i++;
                 j++;
-                std::cout << "Contact successfully added !" << std::endl;
+                std::cout << "[Contact successfully added]" << std::endl;
                 msg();
             }
         else if (cmd == "SEARCH"){
@@ -155,7 +179,7 @@ int main(void) {
         else if (cmd == "EXIT")
             break ;
         else
-            std::cout << "Invalid command, use ADD, SEARCH OR EXIT" << std::endl;
+            std::cout << "Invalid command, use ADD, SEARCH OR EXIT: ";
         if (j == 8)
             j = 0;
     }
