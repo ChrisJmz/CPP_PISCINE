@@ -6,7 +6,7 @@
 /*   By: cjimenez <cjimenez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:36:15 by cjimenez          #+#    #+#             */
-/*   Updated: 2022/10/12 16:48:12 by cjimenez         ###   ########.fr       */
+/*   Updated: 2022/10/12 17:26:51 by cjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ inline void search (Contact *contact, int i){
     std::string value;
     std::cout << std::endl;
     std::cout << "|";
-    std::cout << std::setw(11)<< "Index |";
-    std::cout << std::setw(11)<< "First |";
-    std::cout << std::setw(11)<< "Last |";
-    std::cout << std::setw(11)<< "Nick |" << std::endl;
+    std::cout << std::setw(11)<< " Index|";
+    std::cout << std::setw(11)<< " First|";
+    std::cout << std::setw(11)<< " Last|";
+    std::cout << std::setw(11)<< " Nick|" << std::endl;
 
     if (i == 0){
         std::cout << std::endl << "No contact found" << std::endl;
@@ -45,7 +45,7 @@ inline void search (Contact *contact, int i){
     for (int j = 0; j < i; j++)
     {
         std::cout << "|";
-        std::cout << std::setw(9) << j << " |";
+        std::cout << std::setw(10) << j << "|";
         value = contact[j].getFirstName();
         if (value.length() > 10){
             std::cout << value.substr(0,9) << ".";
@@ -88,19 +88,6 @@ inline void search (Contact *contact, int i){
     }
 }
 
-bool checkNum(std::string str)
-{
-    int i = 0;
-    
-    while (str[i])
-    {
-        if (isdigit(str[i]) == 0)
-            return (false);
-        i++;
-    }
-    return (true);
-}
-
 int main(void) {
     std::string cmd;
     std::string value;
@@ -108,7 +95,7 @@ int main(void) {
     PhoneBook phoneBook;
     Contact cnt;
 
-    int i = 0;
+    int index = 0;
     int j = 0;
 
     msg();
@@ -166,14 +153,14 @@ int main(void) {
                 }
                 phoneBook.contact[j].setDarkestSecret(value);
                 value = "";
-                if (i != 8)
-                    i++;
+                if (index != 8)
+                    index++;
                 j++;
                 std::cout << "[Contact successfully added]" << std::endl;
                 msg();
             }
         else if (cmd == "SEARCH"){
-            search(phoneBook.contact, i);
+            search(phoneBook.contact, index);
             msg();
         }
         else if (cmd == "EXIT")

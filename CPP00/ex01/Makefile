@@ -6,7 +6,7 @@
 #    By: cjimenez <cjimenez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/10 15:40:17 by cjimenez          #+#    #+#              #
-#    Updated: 2022/10/11 12:33:45 by cjimenez         ###   ########.fr        #
+#    Updated: 2022/10/12 17:15:40 by cjimenez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,19 +22,19 @@ CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 %.o:	%.c
-	@${CC} ${CFLAGS} -c $< -o $@ -I ${INCLUDE}
+	${CC} ${CFLAGS} -c $< -o $@ -I ${INCLUDE}
 
 all:	${NAME}
 
 ${NAME}:	${OBJS}
-	@${CC} ${CFLAGS} ${OBJS} -o ${NAME}
+	${CC} ${CFLAGS} ${OBJS} -o ${NAME}
 
 clean:
-	@${RM} ${OBJS}
+	${RM} ${OBJS}
 
 fclean:
-	@${RM} ${OBJS}
-	@${RM} ${NAME}
+	${RM} ${OBJS}
+	${RM} ${NAME}
 
 re:	fclean all
 
