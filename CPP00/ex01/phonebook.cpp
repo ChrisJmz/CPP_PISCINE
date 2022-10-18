@@ -6,168 +6,96 @@
 /*   By: cjimenez <cjimenez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:36:15 by cjimenez          #+#    #+#             */
-/*   Updated: 2022/10/12 17:26:51 by cjimenez         ###   ########.fr       */
+/*   Updated: 2022/10/18 14:43:14 by cjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.class.hpp"
 #include "PhoneBook.class.hpp"
-#include <iomanip>
 
-void    msg(void)
+
+void    display()
 {
-    std::cout << "PHONEBOOK BANGER : ADD, SEARCH OR EXIT: ";
-}
-
-void    List(Contact *contact, int index)
-{
-    std::cout << std::endl << "First name: " << contact[index].getFirstName()<< std::endl;
-    std::cout << "Last name: " << contact[index].getLastName()<< std::endl;
-    std::cout << "Nickname: " << contact[index].getNickname()<< std::endl;
-    std::cout << "Phone number: " << contact[index].getPhoneNumber()<< std::endl;
-    std::cout << "Darkest secret: " << contact[index].getDarkestSecret()<< std::endl;
-}
-
-inline void search (Contact *contact, int i){
-    
-    std::string value;
     std::cout << std::endl;
     std::cout << "|";
     std::cout << std::setw(11)<< " Index|";
     std::cout << std::setw(11)<< " First|";
     std::cout << std::setw(11)<< " Last|";
     std::cout << std::setw(11)<< " Nick|" << std::endl;
+}
 
-    if (i == 0){
-        std::cout << std::endl << "No contact found" << std::endl;
-        return ;
-    }
-    for (int j = 0; j < i; j++)
-    {
-        std::cout << "|";
-        std::cout << std::setw(10) << j << "|";
-        value = contact[j].getFirstName();
-        if (value.length() > 10){
-            std::cout << value.substr(0,9) << ".";
-        }
-        else
-            std::cout << std::setw((10 - value.length()) + value.length()) << value;
-        std::cout << "|";
-        value = contact[j].getLastName();
-        if (value.length() > 10){
-            std::cout << value.substr(0,9) << ".";
-        }
-        else
-            std::cout << std::setw((10 - value.length()) + value.length()) << value;
-        std::cout << "|";
-        value = contact[j].getNickname();
-        if (value.length() > 10){
-            std::cout << value.substr(0,9) << ".";
-        }
-        else
-            std::cout << std::setw((10 - value.length()) + value.length()) << value;
-        std::cout << "|" << std::endl;
-    }
-    std::cout << "Contact index : ";
-    std::string input;
-    int index;
+void    PhoneBook::Search()
+{
+    for (int i = 0; i < 8; i++)
+        this->contact[i].list();
+    
+}  
 
-    while (1)
+void    msg(void)
+{
+    std::cout << "PHONEBOOK BANGER : ADD, SEARCH OR EXIT: ";
+}
+
+void    PhoneBook::Add()
+{
+    for (int i = 0; i % 8 < 8; i++)
     {
-        if (!std::getline(std::cin, input))
-            exit(1);
-        if (input == "EXIT")
-            break ;
-        if (std::isdigit(input[0]) && atoi(input.c_str()) < 9 && input != "" && atoi(input.c_str()) < i)
+        if (this->contact[i].isEmpty())
         {
-            index = std::stoi(input);
-            List(contact, index);
-            break;
+               this->contact[i].addContact(i);
+               return ;
         }
-        std::cout << "Contact index : ";
+        else if (i >= 8)
+        {
+            this->contact[i % 8].clearContact();
+            this->contact[i % 8].addContact(i % 8);
+            return ;
+        }
     }
 }
 
+void    PhoneBook::List(int i)
+{
+    if (this->contact[i].isEmpty())
+        return ;
+    this->contact[i].affContact();
+    return ;
+}
+
 int main(void) {
+    
+    PhoneBook   pbook;
     std::string cmd;
-    std::string value;
-    std::locale loc;
-    PhoneBook phoneBook;
-    Contact cnt;
-
-    int index = 0;
-    int j = 0;
-
     msg();
     while (1)
     {
-        if (!std::getline(std::cin, cmd)) {
-            std::cout << "[EOF EXIT]" << std::endl;
-            return (0);
-        }
+        if (!std::getline(std::cin, cmd))
+            return (std::cout << "EOF EXIT" << std::endl, 1);
         for (std::string::size_type k = 0; k < cmd.length(); ++k)
-            cmd[k] = std::toupper(cmd[k], loc);
-        if (cmd == "ADD"){
-                std::cout << "Please enter your first name: ";
-                while (value.length() == 0){
-                    if (!std::getline(std::cin, value))
-                        return (std::cout << std::endl << "[EOF EXIT]" << std::endl, 0);
-                    if (value == "")
-                         std::cout << "Please enter your first name: ";
+            cmd[k] = std::toupper(cmd[k]);
+        if (cmd == "EXIT")
+            return (0);
+        if (cmd == "ADD")
+            pbook.Add();
+        if (cmd == "SEARCH")
+        {
+            display();
+            pbook.Search();
+            while (1)
+            {
+                std::cout << "Contact index: ";
+                if (!std::getline(std::cin, cmd))
+                    exit (1);
+                if (cmd == "EXIT")
+                {
+                    msg();
+                    break ;
                 }
-                phoneBook.contact[j].setFirstName(value);
-                value = "";
-                std::cout << "Please enter your last name: ";
-                while (value.length() == 0){
-                    if (!std::getline(std::cin, value))
-                        return (std::cout << std::endl << "[EOF EXIT]" << std::endl, 0);
-                    if (value == "")
-                         std::cout << "Please enter your last name: ";
-                }
-                phoneBook.contact[j].setLastName(value);
-                value = "";
-                std::cout << "Please enter your nickname: ";
-                while (value.length() == 0){
-                    if (!std::getline(std::cin, value))
-                        return (std::cout << std::endl << "[EOF EXIT]" << std::endl, 0);
-                    if (value == "")
-                         std::cout << "Please enter your nickname: ";
-                }
-                phoneBook.contact[j].setNickname(value);
-                value = "";
-                std::cout << "Please enter your phone number: ";
-                while (value.length() == 0){
-                    if (!std::getline(std::cin, value))
-                        return (std::cout << std::endl << "[EOF EXIT]" << std::endl, 0);
-                    if (value == "")
-                         std::cout << "Please enter your phone number: ";
-                }
-                phoneBook.contact[j].setPhoneNumber(value);
-                value = "";
-                std::cout << "Please enter your darkest secret: ";
-                while (value.length() == 0){
-                    if (!std::getline(std::cin, value))
-                        return (std::cout << std::endl << "[EOF EXIT]" << std::endl, 0);
-                    if (value == "")
-                         std::cout << "Please enter your darkest secret: ";
-                }
-                phoneBook.contact[j].setDarkestSecret(value);
-                value = "";
-                if (index != 8)
-                    index++;
-                j++;
-                std::cout << "[Contact successfully added]" << std::endl;
-                msg();
+                if (std::isdigit(cmd[0]) && atoi(cmd.c_str()) < 8 && cmd != "")
+                    pbook.List(atoi(cmd.c_str()));
             }
-        else if (cmd == "SEARCH"){
-            search(phoneBook.contact, index);
-            msg();
         }
-        else if (cmd == "EXIT")
-            break ;
         else
-            std::cout << "Invalid command, use ADD, SEARCH OR EXIT: ";
-        if (j == 8)
-            j = 0;
+            msg();
     }
 }

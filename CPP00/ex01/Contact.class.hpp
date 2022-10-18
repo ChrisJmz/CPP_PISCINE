@@ -6,7 +6,7 @@
 /*   By: cjimenez <cjimenez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:11:16 by cjimenez          #+#    #+#             */
-/*   Updated: 2022/10/12 17:15:34 by cjimenez         ###   ########.fr       */
+/*   Updated: 2022/10/18 14:06:10 by cjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,23 @@
 # include <iostream>
 # include <string>
 # include <locale>
+#include <stdlib.h>
+#include <iomanip>
+
 
 class Contact {
     
     public:
         Contact (void);
         ~Contact (void);
-        void setFirstName(std::string value);
-        void setLastName(std::string value);
-        void setNickname(std::string value);
-        void setPhoneNumber(std::string value);
-        void setDarkestSecret(std::string value);
-        std::string getFirstName(void);
-        std::string getLastName(void);
-        std::string getNickname(void);
-        std::string getPhoneNumber(void);
-        std::string getDarkestSecret(void);
+        void    list(void) const;
+        void    addContact(int i);
+        void    affContact(void);
+        void    clearContact(void);
+        bool     isEmpty(void);
     private:
         std::string _FirstName, _LastName, _Nickname, _PhoneNumber, _DarkestSecret;
+        int _Index;
         
 };
 
