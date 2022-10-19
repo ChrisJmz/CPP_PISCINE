@@ -6,7 +6,7 @@
 /*   By: cjimenez <cjimenez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 11:33:25 by cjimenez          #+#    #+#             */
-/*   Updated: 2022/10/12 17:11:48 by cjimenez         ###   ########.fr       */
+/*   Updated: 2022/10/19 16:01:13 by cjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main(int ac, char **av)
     
     i = 0;
     if (ac == 1)
-        return (std::cout << "*LOUD AND UNBREAKABLE FEEDBACK NOISE*" << std::endl, 1);
+        return (std::cout << "*LOUD AND UNBREAKABLE FEEDBACK NOISE*" << std::endl, 0);
     while (av[++i])
     {
         j = 0;

@@ -6,7 +6,7 @@
 /*   By: cjimenez <cjimenez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:34:01 by cjimenez          #+#    #+#             */
-/*   Updated: 2022/10/19 10:56:53 by cjimenez         ###   ########.fr       */
+/*   Updated: 2022/10/19 16:14:33 by cjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,20 +44,12 @@ void    PhoneBook::msg(void)
 
 void    PhoneBook::Add()
 {
-    for (int i = 0; i % 8 < 8; i++)
-    {
-        if (this->contact[i].isEmpty())
-        {
-               this->contact[i].addContact(i);
-               return ;
-        }
-        else if (i >= 8)
-        {
-            this->contact[i % 8].clearContact();
-            this->contact[i % 8].addContact(i % 8);
-            return ;
-        }
-    }
+    static int i = 0;
+
+    this->contact[i].addContact(i);
+    i++;
+    if (i == 8)
+        i = 0;
 }
 
 void    PhoneBook::List(int i)

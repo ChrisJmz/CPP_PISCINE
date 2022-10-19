@@ -6,7 +6,7 @@
 /*   By: cjimenez <cjimenez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:36:15 by cjimenez          #+#    #+#             */
-/*   Updated: 2022/10/19 11:05:03 by cjimenez         ###   ########.fr       */
+/*   Updated: 2022/10/19 15:50:34 by cjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,13 @@
 int main(void) {
     
     PhoneBook   pbook;
+    Contact     cnt;
     std::string cmd;
     pbook.msg();
     while (1)
     {
         if (!std::getline(std::cin, cmd))
-            return (std::cout << "EOF EXIT" << std::endl, 1);
+            return (std::cout << std::endl << "[EOF EXIT]" << std::endl, 1);
         for (std::string::size_type k = 0; k < cmd.length(); ++k)
             cmd[k] = std::toupper(cmd[k]);
         if (cmd == "EXIT")
@@ -36,7 +37,7 @@ int main(void) {
             {
                 std::cout << "Contact index: ";
                 if (!std::getline(std::cin, cmd))
-                    exit (1);
+                    return (std::cout << std::endl << "[EOF EXIT]" << std::endl, 1);
                 if (cmd == "EXIT")
                 {
                     pbook.msg();
