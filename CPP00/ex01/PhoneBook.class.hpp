@@ -6,7 +6,7 @@
 /*   By: cjimenez <cjimenez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:30:30 by cjimenez          #+#    #+#             */
-/*   Updated: 2022/10/18 13:29:21 by cjimenez         ###   ########.fr       */
+/*   Updated: 2022/10/19 10:56:13 by cjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ class PhoneBook {
         void    Search(void);
         void    Add(void);
         void    List(int i);
+        void    msg(void);
+        void    display(void);
 };
 
 #endif

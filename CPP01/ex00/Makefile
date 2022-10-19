@@ -6,7 +6,7 @@
 #    By: cjimenez <cjimenez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 14:08:59 by cjimenez          #+#    #+#              #
-#    Updated: 2022/10/13 16:08:51 by cjimenez         ###   ########.fr        #
+#    Updated: 2022/10/19 11:06:02 by cjimenez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ RM = rm -rf
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-%.o:	%.c
+%.o:	%.cpp
 	@$(CC) $(CFLAGS) -c $< -o $@ -I $(INCLUDE)
 
 all:	$(NAME)

@@ -6,7 +6,7 @@
 /*   By: cjimenez <cjimenez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:11:16 by cjimenez          #+#    #+#             */
-/*   Updated: 2022/10/18 14:06:10 by cjimenez         ###   ########.fr       */
+/*   Updated: 2022/10/18 15:02:30 by cjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,10 @@ class Contact {
         void    addContact(int i);
         void    affContact(void);
         void    clearContact(void);
-        bool     isEmpty(void);
+        bool    isEmpty(void);
     private:
-        std::string _FirstName, _LastName, _Nickname, _PhoneNumber, _DarkestSecret;
         int _Index;
-        
+        std::string _FirstName, _LastName, _Nickname, _PhoneNumber, _DarkestSecret;
 };
 
 #endif

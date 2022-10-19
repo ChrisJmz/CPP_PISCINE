@@ -6,12 +6,12 @@
 #    By: cjimenez <cjimenez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/10 15:40:17 by cjimenez          #+#    #+#              #
-#    Updated: 2022/10/18 12:34:03 by cjimenez         ###   ########.fr        #
+#    Updated: 2022/10/19 11:05:10 by cjimenez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = phonebook
-SRCS =	phonebook.cpp		\
+SRCS =	main.cpp		\
 		Contact.class.cpp	\
 		PhoneBook.class.cpp	\
 
