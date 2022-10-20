@@ -6,7 +6,7 @@
 /*   By: cjimenez <cjimenez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:10:22 by cjimenez          #+#    #+#             */
-/*   Updated: 2022/10/18 14:43:01 by cjimenez         ###   ########.fr       */
+/*   Updated: 2022/10/19 16:12:48 by cjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,21 @@ void    Contact::list(void) const
     std::cout << "|" << std::endl;
 }
 
+void    exitError(void)
+{
+    std::cout << std::endl << "[EOF EXIT]" << std::endl;
+    exit (1);
+}
 
 void    Contact::addContact(int i)
 {
+    clearContact();
     this->_Index = i;
     while (this->_FirstName == "")
     {
         std::cout << "Please enter your first name: ";
         if (!std::getline(std::cin, this->_FirstName))
-            exit (0);
+            exitError();
         if (this->_FirstName == "")
             std::cout << "invalid input" << std::endl;
     }
@@ -63,7 +69,7 @@ void    Contact::addContact(int i)
     {
         std::cout << "Please enter your last name: ";
         if (!std::getline(std::cin, this->_LastName))
-            exit (0);
+            exitError();
         if (this->_LastName == "")
             std::cout << "invalid input" << std::endl;
     }
@@ -71,7 +77,7 @@ void    Contact::addContact(int i)
     {
         std::cout << "Please enter your nickname: ";
         if (!std::getline(std::cin, this->_Nickname))
-            exit (0);
+            exitError();
         if (this->_Nickname == "")
             std::cout << "invalid input" << std::endl;
     }
@@ -79,7 +85,7 @@ void    Contact::addContact(int i)
     {
         std::cout << "Please enter your phone number: ";
         if (!std::getline(std::cin, this->_PhoneNumber))
-            exit (0);
+            exitError();
         if (this->_PhoneNumber == "")
             std::cout << "invalid input" << std::endl;
     }
@@ -87,7 +93,7 @@ void    Contact::addContact(int i)
     {
         std::cout << "Please enter your darkest secret: ";
         if (!std::getline(std::cin, this->_DarkestSecret))
-            exit (0);
+            exitError();
         if (this->_DarkestSecret == "")
             std::cout << "invalid input" << std::endl;
     }

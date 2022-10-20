@@ -6,7 +6,7 @@
 #    By: cjimenez <cjimenez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/10 15:40:17 by cjimenez          #+#    #+#              #
-#    Updated: 2022/10/19 11:05:10 by cjimenez         ###   ########.fr        #
+#    Updated: 2022/10/19 15:56:22 by cjimenez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ RM = rm -rf
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-%.o:	%.cpp
+%.o:	%.cpp Contact.class.hpp PhoneBook.class.hpp
 	${CC} ${CFLAGS} -c $< -o $@ -I ${INCLUDE}
 
 all:	${NAME}
