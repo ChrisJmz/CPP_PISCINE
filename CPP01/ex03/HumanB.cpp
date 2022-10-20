@@ -6,7 +6,7 @@
 /*   By: cjimenez <cjimenez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 17:46:05 by cjimenez          #+#    #+#             */
-/*   Updated: 2022/10/13 18:32:17 by cjimenez         ###   ########.fr       */
+/*   Updated: 2022/10/20 21:33:28 by cjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,8 @@ void    HumanB::setWeapon(Weapon &weapon)
 
 void    HumanB::attack(void) const
 {
-    std::cout << _name << " attacking with ";
-    if (_weapon)
-        std::cout << _weapon->getType() << std::endl;
+    if (_weapon == NULL)
+        std::cout << _name << "boxing with their hands" << std::endl;
     else
-        std::cout << std::endl;
+        std::cout << _name << "attack with " << _weapon->getType() << std::endl;
 }

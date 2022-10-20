@@ -6,40 +6,29 @@
 /*   By: cjimenez <cjimenez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 18:10:46 by cjimenez          #+#    #+#             */
-/*   Updated: 2022/10/13 18:29:48 by cjimenez         ###   ########.fr       */
+/*   Updated: 2022/10/20 21:36:30 by cjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
 #include "HumanA.hpp"
 #include "HumanB.hpp"
 
-int main(void)
+int	main()
 {
-    std::string name;
-    std::string weapon;
-    std::cout << "Human A name: ";
-    if (!std::getline(std::cin, name))
-        exit (1);
-    std::cout << "Weapon: ";
-    if (!std::getline(std::cin, weapon))
-        exit (1);
-    Weapon weapon1 = Weapon(weapon);
-    HumanA number1(name, weapon1);
-    number1.attack();
-    std::cout << "Human B name: ";
-    if (!std::getline(std::cin, name))
-        exit (1);
-    std::cout << "Weapon: ";
-    if (!std::getline(std::cin, weapon));
-        exit (1);
-    Weapon weapon2 = Weapon(weapon);
-    HumanA number2(name, weapon2);
-    number2.attack();
-    std::cout << "Weapon: ";
-    if (!std::getline(std::cin, weapon))
-        exit (1);
-    weapon2.setType(weapon);
-    number2.attack();
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanA bob("Bob", club);
+		bob.attack();
+		club.setType("some other type of club");
+		bob.attack();
+	}
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanB jim("Jim");
+		jim.setWeapon(club);
+		jim.attack();
+		club.setType("some other type of club");
+		jim.attack();
+	}
     return (0);
 }

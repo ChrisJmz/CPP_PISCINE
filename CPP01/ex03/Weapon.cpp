@@ -6,7 +6,7 @@
 /*   By: cjimenez <cjimenez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 17:21:09 by cjimenez          #+#    #+#             */
-/*   Updated: 2022/10/13 17:22:33 by cjimenez         ###   ########.fr       */
+/*   Updated: 2022/10/20 21:35:34 by cjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ Weapon::~Weapon()
     
 }
 
-std::string& Weapon::getType()
+std::string Weapon::getType() const
 {
-    return (this->_type);
+    return _type;
 }
 
 void    Weapon::setType(std::string type)
 {
-    this->_type = type;
+    _type = type;
 }

@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cjimenez <cjimenez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 17:20:10 by cjimenez          #+#    #+#             */
-/*   Updated: 2022/10/20 21:34:50 by cjimenez         ###   ########.fr       */
+/*   Created: 2022/10/20 20:20:28 by cjimenez          #+#    #+#             */
+/*   Updated: 2022/10/20 20:26:05 by cjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_HPP
-# define WEAPON_HPP
-# include <iostream>
+#include "Harl.hpp"
 
-class Weapon
+int main()
 {
-    private:
-        std::string _type;
-    public:
-        Weapon(std::string type);
-        ~Weapon();
-        std::string getType() const;
-        void        setType(std::string type);
-};
-
-#endif
+    Harl harl;
+    std::string str;
+    std::cout << "Select level (debug, info, warning, error): ";
+    if (!(std::getline(std::cin, str)))
+        return (1);
+    harl.complain(str);
+}

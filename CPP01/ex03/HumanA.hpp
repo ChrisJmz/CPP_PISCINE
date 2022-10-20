@@ -6,7 +6,7 @@
 /*   By: cjimenez <cjimenez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 17:55:36 by cjimenez          #+#    #+#             */
-/*   Updated: 2022/10/13 17:57:23 by cjimenez         ###   ########.fr       */
+/*   Updated: 2022/10/20 21:30:07 by cjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@
 
 class HumanA
 {
-private:
-    std::string _name;
-    Weapon      *_weapon;
-public:
-    HumanA(std::string name, Weapon& _weapon);
-    ~HumanA();
-    void attack() const;
+    private:
+        std::string _name;
+        Weapon      &_weapon;
+    public:
+        HumanA(std::string name, Weapon &weapon);
+        ~HumanA();
+        void attack() const;
 };
 
 #endif
