@@ -6,7 +6,7 @@
 /*   By: cjimenez <cjimenez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 15:57:15 by cjimenez          #+#    #+#             */
-/*   Updated: 2022/10/13 16:15:29 by cjimenez         ###   ########.fr       */
+/*   Updated: 2022/10/24 15:33:34 by cjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,10 @@
 
 int main(void)
 {
-    std::string nbr;
-    std::string name;
-    
-    std::cout << "Nombre de zombie: ";
-    std::getline(std::cin, nbr);
-    std::cout << "Nom de zombie: ";
-    std::getline(std::cin, name);
-    Zombie *Horde = zombieHorde(atoi(nbr.c_str()), name);
+    std::cout << "Creation de 5 zombies Jeff" << std::endl;
+    Zombie *Horde = zombieHorde(5, "Jeff");
     int i = 0;
-    while (i < atoi(nbr.c_str()))
+    while (i < 5)
     {
         Horde[i].announce();
         i++;
