@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cjimenez <cjimenez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 17:34:20 by cjimenez          #+#    #+#             */
-/*   Updated: 2022/10/25 14:46:19 by cjimenez         ###   ########.fr       */
+/*   Created: 2022/10/25 15:16:03 by cjimenez          #+#    #+#             */
+/*   Updated: 2022/10/25 16:10:28 by cjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,23 @@ Fixed::Fixed()
 {
     std::cout << "Default constructor called" << std::endl;
     this->_rawBits = 0;
-    this->_bits = 8;
+}
+
+Fixed::~Fixed()
+{
+    std::cout << "Destructor called" << std::endl;
+}
+
+Fixed::Fixed(const float value)
+{
+    std::cout << "Constructor float called" << std::endl;
+    this->_rawBits = (int)(roundf(value * (1 << this->_bits)));
+}
+
+Fixed::Fixed(const int value)
+{
+    std::cout << "Constructor int called" << std::endl;
+    this->_rawBits = value << _bits;
 }
 
 Fixed::Fixed(const Fixed &nb)
@@ -25,18 +41,22 @@ Fixed::Fixed(const Fixed &nb)
     this->_rawBits = nb.getRawBits();
 }
 
-Fixed::~Fixed()
+int Fixed::toInt(void) const
 {
-    std::cout << "Destructor called" << std::endl;
+    return ((int)this->_rawBits >> this->_bits);
 }
 
-int Fixed::getRawBits(void)const
+float Fixed::toFloat(void) const 
 {
-    std::cout << "getRawBits called" << std::endl;
-    return (_rawBits);
+    return ((float)this->_rawBits /  ( 1 << this->_bits));
 }
 
-void Fixed::setRawBits(int const raw)
+int Fixed::getRawBits(void) const
+{
+    return (this->_rawBits);
+}
+
+void    Fixed::setRawBits(int const raw)
 {
     this->_rawBits = raw;
 }
@@ -45,5 +65,12 @@ Fixed & Fixed::operator=(Fixed const & value)
 {
     std::cout << "Copy assignment operator called" << std::endl;
     this->_rawBits = value.getRawBits();
-    return *this;
+    return *this;    
 }
+
+std::ostream & operator<<(std::ostream & out, Fixed const & value)
+{
+    out << value.toFloat();
+    return (out);
+}
+
