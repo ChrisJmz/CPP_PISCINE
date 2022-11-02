@@ -6,7 +6,7 @@
 /*   By: cjimenez <cjimenez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 17:01:26 by cjimenez          #+#    #+#             */
-/*   Updated: 2022/11/02 19:43:35 by cjimenez         ###   ########.fr       */
+/*   Updated: 2022/11/02 20:23:22 by cjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 ClapTrap::ClapTrap()
 {
-    std::cout << "Default constructor called" << std::endl;
+    std::cout << "ClapTrap constructor called" << std::endl;
     this->_healthPoint = 100;
     this->_energyPoint = 50;
     this->_attackDamage = 20;
@@ -22,22 +22,21 @@ ClapTrap::ClapTrap()
 
 ClapTrap::ClapTrap(std::string const &name)
 {
-    std::cout << "Default constructor called" << std::endl;
+    std::cout << "ClapTrap constructor called" << std::endl;
     this->_name = name;
     this->_healthPoint = 100;
     this->_energyPoint = 50;
     this->_attackDamage = 20;
 }
 
-
 ClapTrap::~ClapTrap()
 {
-    std::cout << "Destructor called" << std::endl;
+    std::cout << "ClapTrap Destructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap &a)
 {
-    std::cout << "Copy constructor called" << std::endl;
+    std::cout << "ClapTrap copy constructor called" << std::endl;
     this->_name = a.getName();
     this->_healthPoint = 100;
     this->_energyPoint = 50;
@@ -46,11 +45,11 @@ ClapTrap::ClapTrap(ClapTrap &a)
 
 ClapTrap & ClapTrap::operator=(ClapTrap const & value)
 {
-    std::cout << "Copy assignment operator called" << std::endl;
-    this->_name = value.getName();
-    this->_healthPoint = value.getHealth();
-    this->_energyPoint = value.getEnergy();
-    this->_attackDamage = value.getAttack();
+    std::cout << "ClapTrap copy assignment operator called" << std::endl;
+        this->_name = value.getName();
+        this->_healthPoint = value.getHealth();
+        this->_energyPoint = value.getEnergy();
+        this->_attackDamage = value.getAttack();
     return (*this);
 }
 
