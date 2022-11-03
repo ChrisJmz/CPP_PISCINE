@@ -6,7 +6,7 @@
 /*   By: cjimenez <cjimenez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 17:01:26 by cjimenez          #+#    #+#             */
-/*   Updated: 2022/11/03 11:54:54 by cjimenez         ###   ########.fr       */
+/*   Updated: 2022/11/03 12:19:41 by cjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ ClapTrap::ClapTrap()
     std::cout << "ClapTrap constructor called" << std::endl;
     this->_healthPoint = 100;
     this->_energyPoint = 10;
-    this->_attackDamage = 0;
+    this->_attackDamage = 30;
 }
 
 ClapTrap::ClapTrap(std::string const &name)
@@ -26,7 +26,7 @@ ClapTrap::ClapTrap(std::string const &name)
     this->_name = name;
     this->_healthPoint = 100;
     this->_energyPoint = 10;
-    this->_attackDamage = 0;
+    this->_attackDamage = 30;
 }
 
 ClapTrap::~ClapTrap()
@@ -40,7 +40,7 @@ ClapTrap::ClapTrap(ClapTrap &a)
     this->_name = a.getName();
     this->_healthPoint = 100;
     this->_energyPoint = 10;
-    this->_attackDamage = 0;
+    this->_attackDamage = 30;
 }
 
 ClapTrap & ClapTrap::operator=(ClapTrap const & value)

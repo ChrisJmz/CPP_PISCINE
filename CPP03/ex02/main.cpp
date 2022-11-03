@@ -5,19 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cjimenez <cjimenez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/02 17:25:16 by cjimenez          #+#    #+#             */
-/*   Updated: 2022/11/03 12:16:54 by cjimenez         ###   ########.fr       */
+/*   Created: 2022/11/03 11:22:12 by cjimenez          #+#    #+#             */
+/*   Updated: 2022/11/03 12:28:06 by cjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main (void){
 
     {
         std::cout << "====Default method===============" << std::endl;
-        ScavTrap yasuo("Yasuo");
+        FragTrap yasuo("Yasuo");
         std::cout << "=================================" << std::endl;
         std::cout << "health: " << yasuo.getHealth() << std::endl;
         std::cout << "energy: " << yasuo.getEnergy() << std::endl;
@@ -30,8 +30,6 @@ int main (void){
         std::cout << "health: " << yasuo.getHealth() << std::endl;
         std::cout << "energy: " << yasuo.getEnergy() << std::endl;
         std::cout << "attack: " << yasuo.getAttack() << std::endl;
-        std::cout << "=================================" << std::endl;
-        yasuo.guardGate();
         std::cout << "=================================" << std::endl;
     }
 }
