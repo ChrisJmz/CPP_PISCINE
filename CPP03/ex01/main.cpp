@@ -6,7 +6,7 @@
 /*   By: cjimenez <cjimenez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 17:25:16 by cjimenez          #+#    #+#             */
-/*   Updated: 2022/11/03 12:16:54 by cjimenez         ###   ########.fr       */
+/*   Updated: 2022/11/04 14:44:46 by cjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main (void){
 
     {
         std::cout << "====Default method===============" << std::endl;
-        ScavTrap yasuo("Yasuo");
+        ScavTrap yasuo;
         std::cout << "=================================" << std::endl;
         std::cout << "health: " << yasuo.getHealth() << std::endl;
         std::cout << "energy: " << yasuo.getEnergy() << std::endl;

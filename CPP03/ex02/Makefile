@@ -6,7 +6,7 @@
 #    By: cjimenez <cjimenez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 14:08:59 by cjimenez          #+#    #+#              #
-#    Updated: 2022/11/03 12:28:40 by cjimenez         ###   ########.fr        #
+#    Updated: 2022/11/04 14:55:22 by cjimenez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME = fragtrap
 
 SRCS =	ClapTrap.cpp	\
 		FragTrap.cpp	\
+		ScavTrap.cpp	\
 		main.cpp 		\
 
 OBJS =	$(SRCS:.cpp=.o)

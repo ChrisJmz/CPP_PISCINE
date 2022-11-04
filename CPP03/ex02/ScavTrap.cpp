@@ -6,7 +6,7 @@
 /*   By: cjimenez <cjimenez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 18:44:43 by cjimenez          #+#    #+#             */
-/*   Updated: 2022/11/04 15:03:11 by cjimenez         ###   ########.fr       */
+/*   Updated: 2022/11/04 14:46:04 by cjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ ScavTrap::~ScavTrap()
 void ScavTrap::attack(const std::string &target)
 {
     if (_healthPoint == 0)
-        std::cout << "ScapTrap " << _name << " is low on health and cannot attack" << std::endl;
+        std::cout << "ScapTrap " << _name << " islow on health and cannot attack" << std::endl;
     else if (_energyPoint == 0)
         std::cout << "ScavTrap " << _name << " is low on energy and cannot attack" << std::endl;
     else
