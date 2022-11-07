@@ -6,7 +6,7 @@
 /*   By: cjimenez <cjimenez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 16:34:15 by cjimenez          #+#    #+#             */
-/*   Updated: 2022/10/31 17:02:51 by cjimenez         ###   ########.fr       */
+/*   Updated: 2022/11/07 14:44:59 by cjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class Fixed
 {
     private:
         int                 _rawBits;
-        static const int    _fractionalBits = 8;
+        static const int    _bits = 8;
     public:
         Fixed();
         Fixed(int const i);

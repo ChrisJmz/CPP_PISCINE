@@ -6,7 +6,7 @@
 /*   By: cjimenez <cjimenez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 15:16:03 by cjimenez          #+#    #+#             */
-/*   Updated: 2022/11/03 11:00:53 by cjimenez         ###   ########.fr       */
+/*   Updated: 2022/11/07 14:57:30 by cjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ Fixed::Fixed(const Fixed &nb)
 {
     std::cout << "Copy constructor called" << std::endl;
     _rawBits = nb.getRawBits();
+    //*this = nb;
 }
 
 int Fixed::toInt(void) const

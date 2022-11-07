@@ -6,7 +6,7 @@
 /*   By: cjimenez <cjimenez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 16:46:19 by cjimenez          #+#    #+#             */
-/*   Updated: 2022/10/31 17:07:14 by cjimenez         ###   ########.fr       */
+/*   Updated: 2022/11/07 14:45:14 by cjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ Fixed::Fixed()
 
 Fixed::Fixed(int const i)
 {
-    _rawBits = i << _fractionalBits;
+    _rawBits = i << _bits;
 }
 
 Fixed::Fixed(float const f)
 {
-    _rawBits = round(f * (1 << _fractionalBits));
+    _rawBits = round(f * (1 << _bits));
 }
 
 Fixed::Fixed(const Fixed &copy)
@@ -90,14 +90,14 @@ Fixed Fixed::operator-(Fixed const &modif)
 Fixed Fixed::operator*(Fixed const &modif)
 {
     Fixed result;
-    result.setRawBits((_rawBits * modif.getRawBits()) >> _fractionalBits);
+    result.setRawBits((_rawBits * modif.getRawBits()) >> _bits);
     return result;
 }
 
 Fixed Fixed::operator/(Fixed const &modif)
 {
     Fixed result;
-    result.setRawBits((_rawBits << _fractionalBits) / modif.getRawBits());
+    result.setRawBits((_rawBits << _bits) / modif.getRawBits());
     return result;
 }
 
@@ -139,12 +139,12 @@ void Fixed::setRawBits(int const raw)
 
 int Fixed::toInt() const
 {
-    return _rawBits >> _fractionalBits;
+    return _rawBits >> _bits;
 }
 
 float Fixed::toFloat() const
 {
-    return _rawBits / (float)(1 << _fractionalBits);
+    return _rawBits / (float)(1 << _bits);
 }
 
 Fixed & Fixed::min(Fixed &a, Fixed &b)

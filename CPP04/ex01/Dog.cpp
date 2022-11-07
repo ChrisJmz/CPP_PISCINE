@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cjimenez <cjimenez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 15:52:30 by cjimenez          #+#    #+#             */
-/*   Updated: 2022/11/07 14:53:22 by cjimenez         ###   ########.fr       */
+/*   Created: 2022/11/04 16:03:18 by cjimenez          #+#    #+#             */
+/*   Updated: 2022/11/04 16:27:21 by cjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
-# include <iostream>
+#include "Dog.hpp"
 
-class Fixed
+Dog::Dog()
 {
-    private:
-        int _rawBits;
-        static const int _bits = 8;
-    public:
-        Fixed();
-        Fixed(const Fixed &nb);
-        ~Fixed();
-        Fixed & operator = (Fixed const & value);
-        int     getRawBits(void) const;
-        void    setRawBits(int const raw);
-};
+    std::cout << "Default Dog constructor called" << std::endl;
+    _type = "Dog";
+}
 
-#endif
+Dog::Dog(const Dog &copy) : Animal(copy)
+{
+    std::cout << "Copy Dog constructor called" << std::endl;
+    _type = copy.getType();
+}
+
+Dog::~Dog()
+{
+    std::cout << "Dog destructor called" << std::endl;
+}
+
+void Dog::makeSound() const
+{
+    std::cout << "BARK BARK" << std::endl;
+}

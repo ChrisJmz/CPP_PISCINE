@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cjimenez <cjimenez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 15:52:30 by cjimenez          #+#    #+#             */
-/*   Updated: 2022/11/07 14:53:22 by cjimenez         ###   ########.fr       */
+/*   Created: 2022/11/04 15:58:53 by cjimenez          #+#    #+#             */
+/*   Updated: 2022/11/04 16:27:10 by cjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
-# include <iostream>
+#include "Cat.hpp"
 
-class Fixed
+Cat::Cat()
 {
-    private:
-        int _rawBits;
-        static const int _bits = 8;
-    public:
-        Fixed();
-        Fixed(const Fixed &nb);
-        ~Fixed();
-        Fixed & operator = (Fixed const & value);
-        int     getRawBits(void) const;
-        void    setRawBits(int const raw);
-};
+    std::cout << "Default Cat constructor called" << std::endl;
+    _type = "Cat";
+}
 
-#endif
+Cat::Cat(const Cat &copy) : Animal(copy)
+{
+    std::cout << "Copy Cat constructor called" << std::endl;
+    _type = copy.getType();
+}
+
+Cat::~Cat()
+{
+    std::cout << "Cat destructor called" << std::endl;
+}
+
+void Cat::makeSound() const 
+{
+    std::cout << "Miaouu!" << std::endl;
+}
