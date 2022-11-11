@@ -6,11 +6,11 @@
 #    By: cjimenez <cjimenez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 14:08:59 by cjimenez          #+#    #+#              #
-#    Updated: 2022/11/10 16:01:13 by cjimenez         ###   ########.fr        #
+#    Updated: 2022/11/11 17:14:18 by cjimenez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = animal
+NAME = bureaucrat
 
 SRCS =	Bureaucrat.cpp	\
 		main.cpp		\
