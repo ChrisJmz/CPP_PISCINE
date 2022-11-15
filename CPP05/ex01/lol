@@ -1,0 +1,39 @@
+===== Basic test =====
+Super form, Not Signed, Grade to sign: 42, Grade to execute: 41
+===== Exceptions test =====
+[0;32mWorked ![0m
+[0;31mError: grade is too high[0m
+[0;31mError: grade is too high[0m
+[0;31mError: grade is too low[0m
+[0;31mError: grade is too low[0m
+===== BeSigned test =====
+Super form, Not Signed, Grade to sign: 42, Grade to execute: 42
+George bureau grade 40
+Super form, Signed, Grade to sign: 42, Grade to execute: 42
+----- Test 2 -----
+Super form, Not Signed, Grade to sign: 42, Grade to execute: 42
+George bureau grade 45
+[0;31mError: grade is too low[0m
+Super form, Not Signed, Grade to sign: 42, Grade to execute: 42
+----- Test 3 -----
+Super form, Not Signed, Grade to sign: 42, Grade to execute: 42
+George bureau grade 40
+Super form, Signed, Grade to sign: 42, Grade to execute: 42
+[0;31mError: Form is already signed[0m
+Super form, Signed, Grade to sign: 42, Grade to execute: 42
+===== Sign test =====
+Super form, Not Signed, Grade to sign: 42, Grade to execute: 42
+George bureau grade 40
+George signed Super form
+Super form, Signed, Grade to sign: 42, Grade to execute: 42
+----- Test 2 -----
+Super form, Not Signed, Grade to sign: 42, Grade to execute: 42
+George couldn't sign Super form because: grade is too low
+Super form, Not Signed, Grade to sign: 42, Grade to execute: 42
+----- Test 3 -----
+Super form, Not Signed, Grade to sign: 42, Grade to execute: 42
+George bureau grade 40
+George signed Super form
+Super form, Signed, Grade to sign: 42, Grade to execute: 42
+George couldn't sign Super form because: Form is already signed
+Super form, Signed, Grade to sign: 42, Grade to execute: 42
