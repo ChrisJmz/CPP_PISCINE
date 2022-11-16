@@ -6,12 +6,12 @@
 /*   By: cjimenez <cjimenez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 15:55:02 by cjimenez          #+#    #+#             */
-/*   Updated: 2022/11/15 16:15:03 by cjimenez         ###   ########.fr       */
+/*   Updated: 2022/11/16 22:49:14 by cjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRESIDENTIALPARDONFORM.HPP
-# define PRESIDENTIALPARODNFORM.HPP
+#ifndef PRESIDENTIALPARDONFORM_HPP
+# define PRESIDENTIALPARODNFORM_HPP
 # include <iostream>
 # include <string>
 # include <cstdlib>
@@ -23,7 +23,7 @@ class PresidentialPardonForm : public Form
         std::string _target;
     public:
         PresidentialPardonForm();
-        PresidentialPardonForm(std::string targer);
+        PresidentialPardonForm(std::string target);
         PresidentialPardonForm(const PresidentialPardonForm &copy);
         ~PresidentialPardonForm();
         PresidentialPardonForm & operator=(const PresidentialPardonForm &assign);

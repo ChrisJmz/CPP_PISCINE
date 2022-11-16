@@ -6,14 +6,19 @@
 #    By: cjimenez <cjimenez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 14:08:59 by cjimenez          #+#    #+#              #
-#    Updated: 2022/11/16 22:51:27 by cjimenez         ###   ########.fr        #
+#    Updated: 2022/11/16 22:56:16 by cjimenez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = bureaucrat
 
-SRCS =	Bureaucrat.cpp	\
-		main.cpp		\
+SRCS =	Bureaucrat.cpp				\
+		Form.cpp					\
+		main.cpp					\
+		PresidentialPardonForm.cpp	\
+		RobotomyRequestForm.cpp		\
+		ShrubberyCreationForm.cpp	\
+		Intern.cpp					\
 
 OBJS =	$(SRCS:.cpp=.o)
 DEPS =	$(SRCS:.cpp=.d)

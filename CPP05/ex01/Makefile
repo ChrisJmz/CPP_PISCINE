@@ -6,7 +6,7 @@
 #    By: cjimenez <cjimenez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 14:08:59 by cjimenez          #+#    #+#              #
-#    Updated: 2022/11/12 14:01:58 by cjimenez         ###   ########.fr        #
+#    Updated: 2022/11/16 22:53:56 by cjimenez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,13 +17,14 @@ SRCS =	Bureaucrat.cpp	\
 		main.cpp		\
 
 OBJS =	$(SRCS:.cpp=.o)
+DEPS =	$(SRCS:.cpp=.d)
 INCLUDE = include
 RM = rm -rf
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 %.o:	%.cpp
-	$(CC) $(CFLAGS) -c $< -o $@ -I $(INCLUDE)
+	$(CC) $(CFLAGS) -MMD -MP -c $< -o $@ -I $(INCLUDE)
 
 all:	$(NAME)
 
@@ -31,12 +32,13 @@ $(NAME):	$(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(DEPS)
 
 fclean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(DEPS)
 	$(RM) $(NAME)
 
 re:	fclean all
 
+-include $(DEPS)
 .PHONY: all clean fclean re
