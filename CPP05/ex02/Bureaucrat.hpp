@@ -6,7 +6,7 @@
 /*   By: cjimenez <cjimenez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 17:12:55 by cjimenez          #+#    #+#             */
-/*   Updated: 2022/11/16 21:49:03 by cjimenez         ###   ########.fr       */
+/*   Updated: 2022/11/18 16:39:05 by cjimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ class Bureaucrat
         void decrementGrade();
         void decrementGrade(int i);
         void signForm(Form &form);
-        void executeForm(Form const & form);
+        void executeForm(Form const &form);
 };
 
 std::ostream &operator<<(std::ostream &stream, Bureaucrat const &bureaucrat);
